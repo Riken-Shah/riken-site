@@ -131,13 +131,13 @@ a { color: var(--text); text-decoration: none; }
 }
 .clock-min {
   height: 5px;
-  animation: tick 30s linear infinite;
+  animation: tick 2s ease-out forwards;
 }
 .clock-sec {
   height: 6px;
-  animation: tick 5s linear infinite;
+  animation: tick 1s ease-out forwards;
 }
-@keyframes tick { to { transform: rotate(360deg); } }
+@keyframes tick { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
 /* ── Hero ─────────────────────────────────────── */
 .hero { padding: 160px 0 80px; }
