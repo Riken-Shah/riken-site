@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#1d1d1f"/>
-  <text x="80" y="260" font-family="-apple-system,SF Pro Display,sans-serif" font-size="72" font-weight="600" fill="#fff" letter-spacing="-2">Riken Shah</text>
-  <text x="80" y="340" font-family="-apple-system,SF Pro Display,sans-serif" font-size="72" font-weight="600" fill="#86868b" letter-spacing="-2">Performance Engineer</text>
-  <text x="80" y="430" font-family="-apple-system,SF Pro Text,sans-serif" font-size="28" fill="#6e6e73">I build fast systems that scale to hundreds of thousands of people.</text>
-  <text x="80" y="540" font-family="-apple-system,SF Pro Text,sans-serif" font-size="22" fill="#86868b">riken.me</text>
-</svg>
