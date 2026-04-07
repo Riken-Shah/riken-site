@@ -100,10 +100,11 @@ a { color: var(--text); text-decoration: none; }
 
 /* ── Load time ─────────────────────────────────── */
 .load-wrap {
-  display: inline-flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; gap: 8px;
   border-top: 1px dashed var(--border);
   border-bottom: 1px dashed var(--border);
   padding: 6px 0; position: relative; cursor: help;
+  width: 100%;
 }
 .load-wrap::after {
   content: attr(data-tip);
