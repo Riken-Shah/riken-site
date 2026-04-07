@@ -119,21 +119,26 @@ a { color: var(--text); text-decoration: none; }
 }
 .load-wrap:hover::after { opacity: 1; }
 
-.zap {
-  flex-shrink: 0;
-  animation: zap-strike .6s ease-out forwards;
+.clock {
+  width: 16px; height: 16px; border: 1.5px solid var(--text-3);
+  border-radius: 50%; position: relative; flex-shrink: 0;
 }
-.zap svg {
-  width: 16px; height: 16px;
-  fill: none; stroke: var(--text-3); stroke-width: 2;
-  stroke-linecap: round; stroke-linejoin: round;
+.clock-hand {
+  position: absolute; bottom: 50%; left: 50%;
+  width: 1.5px; background: var(--text-3);
+  transform-origin: bottom center;
+  border-radius: 1px;
 }
-@keyframes zap-strike {
-  0% { opacity: 0; transform: scale(0.3) rotate(-12deg); }
-  40% { opacity: 1; transform: scale(1.3) rotate(4deg); }
-  60% { transform: scale(0.9) rotate(-2deg); }
-  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+.clock-min {
+  height: 5px;
+  animation: tick-min .8s ease-out forwards;
 }
+.clock-sec {
+  height: 6px;
+  animation: tick-sec .5s ease-out forwards;
+}
+@keyframes tick-sec { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes tick-min { from { transform: rotate(0deg); } to { transform: rotate(390deg); } }
 
 /* ── Hero ─────────────────────────────────────── */
 .hero { padding: 160px 0 80px; }
@@ -386,7 +391,7 @@ footer { padding: 48px 0 64px; }
   <section class="hero">
     <h1>Riken Shah</h1>
     <p class="hero-title">Performance Engineer</p>
-    <p id="load-time" style="font-size:0.8125rem;color:var(--text-3);opacity:0;transition:opacity .4s;margin-top:-14px;margin-bottom:16px"></p>
+    <p id="load-time" style="font-size:0.8125rem;color:var(--text-3);opacity:0;transition:opacity .4s;margin-top:-14px;margin-bottom:20px"></p>
     <p class="hero-desc">I build systems that scale to hundreds of thousands of people. Founding Engineer at <a class="link" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>, working on distributed systems, local-first architecture, and AI infrastructure.</p>
     <div class="hero-links">
       <a href="https://github.com/Riken-Shah"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
@@ -591,7 +596,7 @@ addEventListener('load',function(){
   if(!n)return;
   var ms=Math.round(n.domContentLoadedEventEnd-n.startTime);
   var el=document.getElementById('load-time');
-  if(el){el.innerHTML='<span class="load-wrap" data-tip="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime"><span class="zap"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
+  if(el){el.innerHTML='<span class="load-wrap" data-tip="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime"><span class="clock"><span class="clock-hand clock-min"></span><span class="clock-hand clock-sec"></span></span>Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
 });
 </script>
 </body>
