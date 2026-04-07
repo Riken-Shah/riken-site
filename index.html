@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riken Shah – Performance Engineer</title>
+<meta name="description" content="I build fast systems that scale to hundreds of thousands of people.">
+<style>
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Regular.woff2') format('woff2');
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Medium.woff2') format('woff2');
+  font-weight: 500; font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Semibold.woff2') format('woff2');
+  font-weight: 600; font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Regular.woff2') format('woff2');
+  font-weight: 400; font-display: swap;
+}
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Medium.woff2') format('woff2');
+  font-weight: 500; font-display: swap;
+}
+
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --text: #1d1d1f;
+  --text-2: #6e6e73;
+  --text-3: #86868b;
+  --bg: #fff;
+  --border: #e8e8ed;
+  --surface: #f5f5f7;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.47;
+  letter-spacing: -0.022em;
+}
+
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+a { color: var(--text); text-decoration: none; }
+.link { border-bottom: 1px solid var(--border); transition: border-color .2s; }
+.link:hover { border-color: var(--text); }
+
+.m { color: var(--text); font-weight: 500; }
+
+/* ── Hero ─────────────────────────────────────── */
+.hero { padding: 160px 0 80px; }
+.hero h1 {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 2.5rem; font-weight: 600;
+  letter-spacing: -0.032em; line-height: 1.08;
+}
+.hero-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 2.5rem; font-weight: 600;
+  letter-spacing: -0.032em; line-height: 1.08;
+  color: var(--text-3); margin-bottom: 20px;
+}
+.hero-desc {
+  font-size: 1.0625rem; color: var(--text-2);
+  line-height: 1.5; max-width: 540px;
+}
+.hero-links {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  margin-top: 16px;
+}
+.hero-links a {
+  font-size: 0.8125rem; color: var(--text-3);
+  transition: color .2s;
+}
+.hero-links a:hover { color: var(--text); }
+
+/* ── Stats ────────────────────────────────────── */
+.stats {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; background: var(--border);
+  border: 1px solid var(--border); border-radius: 12px;
+  overflow: hidden; margin-bottom: 80px;
+}
+.stat {
+  background: var(--bg); padding: 28px 24px;
+  text-align: center; display: block;
+  color: inherit; text-decoration: none;
+  transition: background .15s;
+}
+a.stat:hover { background: var(--surface); }
+.stat-val {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1.75rem; font-weight: 600;
+  letter-spacing: -0.03em; line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.75rem; color: var(--text-3);
+  margin-top: 6px; line-height: 1.4;
+}
+
+/* ── Section ──────────────────────────────────── */
+.section { padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid var(--border); }
+.section:last-of-type { border-bottom: none; margin-bottom: 0; }
+.section-label {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 0.8125rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--text-3); margin-bottom: 28px;
+}
+
+/* ── Research ─────────────────────────────────── */
+.research-card {
+  display: block; padding: 24px;
+  border: 1px solid var(--border); border-radius: 12px;
+  transition: background .15s;
+}
+.research-card:hover { background: var(--surface); }
+.rc-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1.0625rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 8px;
+}
+.rc-desc { font-size: 0.9375rem; color: var(--text-2); line-height: 1.53; }
+
+/* ── Writing ──────────────────────────────────── */
+.article-row {
+  display: flex; justify-content: space-between;
+  align-items: baseline; gap: 16px;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.article-row:first-of-type { padding-top: 0; }
+.article-row:last-of-type { border-bottom: none; }
+.ar-title { font-size: 0.9375rem; font-weight: 500; flex: 1; }
+.ar-title a { border-bottom: none; }
+.ar-title a:hover { border-bottom: 1px solid var(--text); }
+.ar-meta { font-size: 0.8125rem; color: var(--text-3); white-space: nowrap; }
+
+/* ── Talks ────────────────────────────────────── */
+.talk { margin-bottom: 24px; }
+.talk:last-child { margin-bottom: 0; }
+.talk-title {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1.0625rem; font-weight: 600;
+  letter-spacing: -0.01em; margin-bottom: 2px;
+}
+.talk-venue { font-size: 0.8125rem; color: var(--text-3); margin-bottom: 6px; }
+.talk-desc { font-size: 0.9375rem; color: var(--text-2); line-height: 1.53; }
+
+/* ── Recognition ──────────────────────────────── */
+.rec-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.rec-item { padding: 20px; border: 1px solid var(--border); border-radius: 10px; }
+.rec-label { font-weight: 500; font-size: 0.9375rem; margin-bottom: 4px; }
+.rec-detail { font-size: 0.8125rem; color: var(--text-3); }
+
+/* ── Projects ─────────────────────────────────── */
+.project-row {
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 12px; align-items: baseline;
+}
+.project-row:last-child { border-bottom: none; }
+.pr-name { font-weight: 500; font-size: 0.9375rem; white-space: nowrap; }
+.pr-desc { font-size: 0.875rem; color: var(--text-2); }
+
+/* ── Experience (collapsible) ─────────────────── */
+.exp-toggle {
+  width: 100%; background: none; border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 24px;
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1rem; font-weight: 500;
+  color: var(--text); cursor: pointer;
+  display: flex; justify-content: space-between;
+  align-items: center; transition: background .15s;
+  letter-spacing: -0.01em;
+}
+.exp-toggle:hover { background: var(--surface); }
+.exp-toggle .chevron {
+  transition: transform .25s ease;
+  color: var(--text-3); font-size: 1.25rem;
+}
+.exp-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+.exp-panel {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, opacity .3s ease;
+  opacity: 0;
+}
+.exp-panel.open { opacity: 1; }
+
+.work-card { margin-top: 32px; margin-bottom: 32px; }
+.work-card:last-child { margin-bottom: 0; }
+.work-head {
+  display: flex; justify-content: space-between;
+  align-items: baseline; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 4px;
+}
+.work-role {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 1.0625rem; font-weight: 600;
+  letter-spacing: -0.015em;
+}
+.work-when { font-size: 0.8125rem; color: var(--text-3); }
+.work-at { font-size: 0.9375rem; color: var(--text-2); margin-bottom: 12px; }
+.work-body p {
+  font-size: 0.9375rem; color: var(--text-2);
+  line-height: 1.53; margin-bottom: 8px;
+}
+.work-body p:last-child { margin-bottom: 0; }
+
+/* ── Footer ───────────────────────────────────── */
+footer { padding: 48px 0 64px; }
+.footer-inner {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-copy { font-size: 0.8125rem; color: var(--text-3); }
+.footer-nav { display: flex; gap: 20px; }
+.footer-nav a {
+  font-size: 0.8125rem; color: var(--text-3);
+  transition: color .2s;
+}
+.footer-nav a:hover { color: var(--text); }
+
+#experience { scroll-margin-top: 64px; }
+
+/* ── Top Nav ───────────────────────────────────── */
+.topnav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100; background: rgba(255,255,255,0.85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.topnav-inner {
+  max-width: 720px; margin: 0 auto; padding: 12px 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.topnav-left {
+  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-size: 0.875rem; font-weight: 600;
+  letter-spacing: -0.01em; color: var(--text);
+}
+.topnav-right { display: flex; gap: 18px; align-items: center; }
+.topnav-right a {
+  font-size: 0.8125rem; color: var(--text-3);
+  transition: color .2s; border-bottom: none;
+}
+.topnav-right a:hover { color: var(--text); }
+.topnav-right .nav-cta {
+  color: var(--bg); background: var(--text);
+  padding: 6px 14px; border-radius: 980px;
+  font-size: 0.75rem; font-weight: 500;
+  letter-spacing: 0; transition: opacity .15s;
+}
+.topnav-right .nav-cta:hover { opacity: 0.8; }
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 600px) {
+  .hero { padding: 120px 0 56px; }
+  .hero h1, .hero-title { font-size: 1.875rem; }
+  .stats { grid-template-columns: repeat(2,1fr); }
+  .stat-val { font-size: 1.375rem; }
+  .article-row { flex-direction: column; gap: 4px; }
+  .rec-grid { grid-template-columns: 1fr; }
+  .work-head { flex-direction: column; gap: 2px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .topnav-right .hide-mobile { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Top Nav -->
+<nav class="topnav">
+  <div class="topnav-inner">
+    <span class="topnav-left">Riken Shah</span>
+    <div class="topnav-right">
+      <a href="https://github.com/Riken-Shah" class="hide-mobile">GitHub</a>
+      <a href="https://x.com/_RikenShah" class="hide-mobile">Twitter</a>
+      <a href="https://www.linkedin.com/in/shah-riken/" class="hide-mobile">LinkedIn</a>
+      <a href="/resume.pdf" target="_blank">Resume</a>
+      <a href="#experience" onclick="var b=document.querySelector('#experience .exp-toggle');if(b.getAttribute('aria-expanded')!=='true')b.click()">Experience</a>
+      <a class="nav-cta" href="mailto:rikenshah.02@gmail.com">Get in Touch</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Riken Shah</h1>
+    <p class="hero-title">Performance Engineer</p>
+    <p class="hero-desc">I build fast systems that scale to hundreds of thousands of people. Founding Engineer at Msquare Labs, working on distributed systems, local-first architecture, and AI infrastructure.</p>
+    <div class="hero-links">
+      <a href="https://github.com/Riken-Shah">GitHub</a>
+      <a href="https://x.com/_RikenShah">Twitter</a>
+      <a href="https://www.linkedin.com/in/shah-riken/">LinkedIn</a>
+      <a href="https://dev.to/rikenshah">Dev.to</a>
+      <a href="mailto:rikenshah.02@gmail.com">rikenshah.02@gmail.com</a>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="stats">
+    <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
+      <div class="stat-val">800K+ · 4.8 ★</div>
+      <div class="stat-label">Tasks App Downloads &amp; Rating</div>
+    </a>
+    <a class="stat" href="https://x.com/_RikenShah/status/2039531120061034802">
+      <div class="stat-val">12x</div>
+      <div class="stat-label">Web App Memory Reduction</div>
+    </a>
+    <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
+      <div class="stat-val">4.6x</div>
+      <div class="stat-label">Backend Latency Improvement</div>
+    </a>
+    <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
+      <div class="stat-val">99%</div>
+      <div class="stat-label">Sync Complaints Eliminated</div>
+    </a>
+    <a class="stat" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">
+      <div class="stat-val">100K+</div>
+      <div class="stat-label">Article Reads</div>
+    </a>
+    <a class="stat" href="https://github.com/zulip/zulip/pulls?q=is%3Apr+author%3ARiken-Shah">
+      <div class="stat-val">57+</div>
+      <div class="stat-label">PRs Merged · Zulip (OSS Slack)</div>
+    </a>
+  </div>
+
+  <!-- Writing -->
+  <section class="section">
+    <h2 class="section-label">Writing</h2>
+    <div class="article-row">
+      <span class="ar-title"><a class="link" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">Scaling Backend to 1M Requests with Just 2GB RAM</a></span>
+      <span class="ar-meta">100K+ reads · 600K+ impressions</span>
+    </div>
+    <div class="article-row">
+      <span class="ar-title"><a class="link" href="https://x.com/compose/articles/edit/2012806823074836480">Building a Sync Engine for 700K+ Users on Modified CRDTs</a></span>
+      <span class="ar-meta">Sync engine design deep dive</span>
+    </div>
+    <div class="article-row">
+      <span class="ar-title"><a class="link" href="https://x.com/_RikenShah/status/2039531120061034802">Scaling from 100 to 100K Tasks Under 150MB RAM</a></span>
+      <span class="ar-meta">Viewport rendering, SQLite + IndexedDB</span>
+    </div>
+    <div class="article-row">
+      <span class="ar-title"><a class="link" href="https://www.linkedin.com/embed/feed/update/urn:li:share:7427999905153163264">8x Lower AWS Costs, 2x Faster Delivery for Gratitude (8M+ Users)</a></span>
+      <span class="ar-meta">Infrastructure consulting</span>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="section">
+    <h2 class="section-label">Research</h2>
+    <a class="research-card" href="https://docs.google.com/document/d/1niQHj7TfI-QxVazSkUfW1OIIGYvQg5OSto8CAuRnAG4">
+      <div class="rc-title">Image Decomposition Using Porter-Duff Compositing</div>
+      <div class="rc-desc">Original research on decomposing images into continuous layers based on color composition, applied to textile design automation.</div>
+    </a>
+  </section>
+
+  <!-- Talks -->
+  <section class="section">
+    <h2 class="section-label">Talks</h2>
+    <div class="talk">
+      <div class="talk-title"><a class="link" href="https://www.youtube.com/live/UWQffNJVxeY?si=LS5rV6uLLkgccBkq&t=1360">How to Handle Large Datasets on the Web, Without a Sweat</a></div>
+      <div class="talk-venue">LoFi/35 Conference</div>
+      <div class="talk-desc">EntityStore architecture, two-tier data model, hybrid IDB + SQLite WASM/OPFS storage, and production benchmarks showing 12x improvements in memory and load time.</div>
+    </div>
+    <div class="talk">
+      <div class="talk-title"><a class="link" href="https://www.linkedin.com/posts/shah-riken_exciting-news-the-recent-online-inauguration-activity-7287183054614261761-0Bik">FOSS and Careers in Open Source</a></div>
+      <div class="talk-venue">IIT Bhilai FOSS Community</div>
+      <div class="talk-desc">Building a career through open-source contributions, from first PR to Google Summer of Code.</div>
+    </div>
+  </section>
+
+  <!-- Recognition -->
+  <section class="section">
+    <h2 class="section-label">Recognition</h2>
+    <div class="rec-grid">
+      <div class="rec-item">
+        <div class="rec-label">Google Summer of Code</div>
+        <div class="rec-detail">Selected at age 17, Zulip · <a class="link" href="https://gist.github.com/Riken-Shah/a8253e95265a22fadb55cbe62be32deb">2021</a> · <a class="link" href="https://gist.github.com/Riken-Shah/e94721c8b60e69a91deabd01b7a1f941">2022</a></div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-label">RevenueCat Shipathon</div>
+        <div class="rec-detail">Winner</div>
+      </div>
+      <div class="rec-item">
+        <div class="rec-label">Code Storm</div>
+        <div class="rec-detail">Won competitive coding competition at 17, 500+ participants, GTU</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section">
+    <h2 class="section-label">Projects</h2>
+    <div class="project-row">
+      <a class="pr-name link" href="https://github.com/Riken-Shah/ReplyRobin">ReplyRobin</a>
+      <span class="pr-desc">Email AI agent that learns your writing style via Gmail + LangChain</span>
+    </div>
+    <div class="project-row">
+      <a class="pr-name link" href="https://github.com/Riken-Shah/aashvi-automation">Aashvi</a>
+      <span class="pr-desc">Autonomous AI influencer bot with LoRA-finetuned Stable Diffusion</span>
+    </div>
+    <div class="project-row">
+      <a class="pr-name link" href="https://www.figma.com/community/plugin/1158539818059705018/picsai">PicsAI</a>
+      <span class="pr-desc">Figma plugin for AI asset generation · 17K+ users</span>
+    </div>
+  </section>
+
+  <!-- Experience (collapsible) -->
+  <section class="section" id="experience">
+    <h2 class="section-label">Experience</h2>
+    <button class="exp-toggle" aria-expanded="false" onclick="var p=this.nextElementSibling,o=p.classList.toggle('open');this.setAttribute('aria-expanded',o);p.style.maxHeight=o?p.scrollHeight+'px':'0'">
+      <span>View full work history</span>
+      <span class="chevron">&#8595;</span>
+    </button>
+    <div class="exp-panel">
+
+      <div class="work-card">
+        <div class="work-head">
+          <span class="work-role">Founding Engineer</span>
+          <span class="work-when">Oct 2022 – Present</span>
+        </div>
+        <div class="work-at"><a class="link" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>, Msquare Labs</div>
+        <div class="work-body">
+          <p>Built the <a class="link" href="https://x.com/_RikenShah/status/2028794930714599713">sync engine from scratch</a> using a modified CRDT architecture in Go. Replaced CloudKit to support real-time collaboration with <span class="m">sub-500ms p99 latency</span> globally, zero data loss incidents, and <span class="m">$100/month</span> infrastructure cost.</p>
+          <p>Built the <a class="link" href="https://x.com/_RikenShah/status/2039531120061034802">web app</a> with a viewport-based rendering system scaling from 100 to 100K tasks under <span class="m">~150MB memory</span>. Rewrote the backend from Node.js to Go, achieving a <span class="m">4.6x latency improvement</span> (p99: 1s → 220ms).</p>
+          <p>Integrated observability with the LGTM Stack (Loki, Grafana, Tempo), resolving <span class="m">80%</span> of recurring production errors. Built a real-time voice-controlled AI agent using Gemini Live multimodal API with <span class="m">sub-200ms action latency</span>. Built Yagumi, an AI flow orchestration layer with a 52-flow registry and DAG-based plan builder. Owned infrastructure end-to-end, <span class="m">99.99% uptime</span>.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-head">
+          <span class="work-role">Software Engineer</span>
+          <span class="work-when">Aug 2021 – Nov 2022</span>
+        </div>
+        <div class="work-at">Mela (YC W21)</div>
+        <div class="work-body">
+          <p>Architected a distributed web scraping system with <span class="m">50+ Chrome instances</span> across 20 nodes, processing <span class="m">1M+ pages/day</span> at 95%+ success rate. Built an automated PlayStore deployment pipeline managing <span class="m">5,000+ apps</span>, productized as SaaS at <span class="m">$80K/yr ARR</span>.</p>
+          <p>Optimized file storage via compression and S3 lifecycle policies, cutting costs by <span class="m">76%</span> ($5K → $1.2K/month). Took ownership of backend architecture after manager departure, leading <span class="m">10 core services</span> at <span class="m">99.99% availability</span>.</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-head">
+          <span class="work-role">Open Source · GSoC</span>
+          <span class="work-when">2021 – 2022</span>
+        </div>
+        <div class="work-at"><a class="link" href="https://github.com/zulip/zulip/pulls?q=is%3Apr+author%3ARiken-Shah">Zulip</a></div>
+        <div class="work-body">
+          <p><span class="m">57+ merged PRs</span> and <span class="m">100+ commits</span> across full-stack features, CI stability, and major refactors. Built the Emoji Status feature that headlined the <a class="link" href="https://blog.zulip.com/2022/03/29/zulip-5-0-released/">Zulip v5 release</a>, now used by <span class="m">1000+ organizations</span>. Selected for Google Summer of Code at age 17 (<a class="link" href="https://gist.github.com/Riken-Shah/a8253e95265a22fadb55cbe62be32deb">2021</a>, <a class="link" href="https://gist.github.com/Riken-Shah/e94721c8b60e69a91deabd01b7a1f941">2022</a>).</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-head">
+          <span class="work-role">Co-founder (Exited)</span>
+        </div>
+        <div class="work-at"><a class="link" href="https://www.textile-designer.ai">Textile Designer AI</a></div>
+        <div class="work-body">
+          <p>Built an AI-powered value chain for the Indian textile industry. Designed a <span class="m">100TB</span> image indexing engine for local search. Signed the first client after 9 months and scaled to <span class="m">9 countries</span>.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">Riken Shah</span>
+      <nav class="footer-nav">
+        <a href="https://github.com/Riken-Shah">GitHub</a>
+        <a href="https://x.com/_RikenShah">Twitter</a>
+        <a href="https://www.linkedin.com/in/shah-riken/">LinkedIn</a>
+        <a href="https://dev.to/rikenshah">Dev.to</a>
+        <a href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
