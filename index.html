@@ -99,13 +99,11 @@ a { color: var(--text); text-decoration: none; }
 
 /* ── Stats ────────────────────────────────────── */
 .stats {
-  display: grid; grid-template-columns: repeat(12,1fr);
+  display: grid; grid-template-columns: repeat(3,1fr);
   gap: 1px; background: var(--border);
   border: 1px solid var(--border); border-radius: 12px;
   overflow: hidden; margin-bottom: 80px;
 }
-.stat:nth-child(-n+4) { grid-column: span 3; }
-.stat:nth-child(n+5) { grid-column: span 4; }
 .stat {
   background: var(--bg); padding: 28px 24px;
   text-align: center; display: block;
@@ -291,8 +289,6 @@ footer { padding: 48px 0 64px; }
   .hero { padding: 120px 0 56px; }
   .hero h1, .hero-title { font-size: 1.875rem; }
   .stats { grid-template-columns: repeat(2,1fr); }
-  .stat:nth-child(-n+4), .stat:nth-child(n+5) { grid-column: span 1; }
-  .stat:last-child:nth-child(odd) { grid-column: span 2; }
   .stat-val { font-size: 1.375rem; }
   .article-row { flex-direction: column; gap: 4px; }
   .rec-grid { grid-template-columns: 1fr; }
@@ -321,7 +317,7 @@ footer { padding: 48px 0 64px; }
   <section class="hero">
     <h1>Riken Shah</h1>
     <p class="hero-title">Performance Engineer</p>
-    <p class="hero-desc">I build fast systems that scale to hundreds of thousands of people. Founding Engineer at Msquare Labs, working on distributed systems, local-first architecture, and AI infrastructure.</p>
+    <p class="hero-desc">I build fast systems that scale to hundreds of thousands of people. Founding Engineer at <a class="link" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>, working on distributed systems, local-first architecture, and AI infrastructure.</p>
     <div class="hero-links">
       <a href="https://github.com/Riken-Shah"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
       <a href="https://x.com/_RikenShah"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter</a>
@@ -334,12 +330,8 @@ footer { padding: 48px 0 64px; }
   <!-- Stats -->
   <div class="stats">
     <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
-      <div class="stat-val">800K+</div>
-      <div class="stat-label">Tasks App Downloads</div>
-    </a>
-    <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
       <div class="stat-val">4.8 ★</div>
-      <div class="stat-label">App Store Rating</div>
+      <div class="stat-label">App Store Rating · 800K+ Downloads</div>
     </a>
     <a class="stat" href="https://x.com/_RikenShah/status/2039531120061034802">
       <div class="stat-val">12x</div>
@@ -349,13 +341,13 @@ footer { padding: 48px 0 64px; }
       <div class="stat-val">4.6x</div>
       <div class="stat-label">Backend Latency Improvement</div>
     </a>
-    <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
+    <a class="stat" href="https://x.com/compose/articles/edit/2012806823074836480">
       <div class="stat-val">99%</div>
       <div class="stat-label">Sync Complaints Eliminated</div>
     </a>
     <a class="stat" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">
       <div class="stat-val">100K+</div>
-      <div class="stat-label">Article Reads</div>
+      <div class="stat-label">Reads · Scaling Backend to 1M Req</div>
     </a>
     <a class="stat" href="https://github.com/zulip/zulip/pulls?q=is%3Apr+author%3ARiken-Shah">
       <div class="stat-val">57+</div>
@@ -416,10 +408,10 @@ footer { padding: 48px 0 64px; }
         <div class="rec-label">Google Summer of Code</div>
         <div class="rec-detail">Selected at age 17, Zulip · <a class="link" href="https://gist.github.com/Riken-Shah/a8253e95265a22fadb55cbe62be32deb">2021</a> · <a class="link" href="https://gist.github.com/Riken-Shah/e94721c8b60e69a91deabd01b7a1f941">2022</a></div>
       </div>
-      <div class="rec-item">
+      <a class="rec-item" href="https://www.revenuecat.com/blog/company/2024-ship-a-ton-winners/#h-1st-place-karo-social-task-manager" style="text-decoration:none;color:inherit;display:block">
         <div class="rec-label">RevenueCat Shipathon</div>
         <div class="rec-detail">Winner</div>
-      </div>
+      </a>
       <div class="rec-item">
         <div class="rec-label">Code Storm</div>
         <div class="rec-detail">Won competitive coding competition at 17, 500+ participants, GTU</div>
