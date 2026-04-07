@@ -37,37 +37,7 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="Riken Shah">
 
-<!-- Preconnect to font CDN to reduce critical chain latency -->
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Semibold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Regular.woff2" as="font" type="font/woff2" crossorigin>
-
 <style>
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Regular.woff2') format('woff2');
-  font-weight: 400; font-display: swap;
-}
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Medium.woff2') format('woff2');
-  font-weight: 500; font-display: swap;
-}
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Semibold.woff2') format('woff2');
-  font-weight: 600; font-display: swap;
-}
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Regular.woff2') format('woff2');
-  font-weight: 400; font-display: swap;
-}
-@font-face {
-  font-family: 'SF Pro Text';
-  src: url('https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Medium.woff2') format('woff2');
-  font-weight: 500; font-display: swap;
-}
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
@@ -88,7 +58,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.47;
@@ -106,12 +76,12 @@ a { color: var(--text); text-decoration: none; }
 /* ── Hero ─────────────────────────────────────── */
 .hero { padding: 160px 0 80px; }
 .hero h1 {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 2.5rem; font-weight: 600;
   letter-spacing: -0.032em; line-height: 1.08;
 }
 .hero-title {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 2.5rem; font-weight: 600;
   letter-spacing: -0.032em; line-height: 1.08;
   color: var(--text-3); margin-bottom: 20px;
@@ -157,7 +127,7 @@ a.stat::after {
 }
 a.stat:hover::after { opacity: 1; }
 .stat-val {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 1.75rem; font-weight: 600;
   letter-spacing: -0.03em; line-height: 1.1;
 }
@@ -170,7 +140,7 @@ a.stat:hover::after { opacity: 1; }
 .section { padding-bottom: 56px; margin-bottom: 56px; border-bottom: 1px solid var(--border); }
 .section:last-of-type { border-bottom: none; margin-bottom: 0; }
 .section-label {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 0.8125rem; font-weight: 500;
   text-transform: uppercase; letter-spacing: 0.06em;
   color: var(--text-3); margin-bottom: 28px;
@@ -184,7 +154,7 @@ a.stat:hover::after { opacity: 1; }
 }
 .research-card:hover { background: var(--surface); }
 .rc-title {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 1.0625rem; font-weight: 600;
   letter-spacing: -0.01em; margin-bottom: 8px;
 }
@@ -207,7 +177,7 @@ a.stat:hover::after { opacity: 1; }
 .talk { margin-bottom: 24px; }
 .talk:last-child { margin-bottom: 0; }
 .talk-title {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 1.0625rem; font-weight: 600;
   letter-spacing: -0.01em; margin-bottom: 2px;
 }
@@ -233,7 +203,7 @@ a.stat:hover::after { opacity: 1; }
 .exp-toggle {
   width: 100%; background: none; border: 1px solid var(--border);
   border-radius: 12px; padding: 20px 24px;
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 1rem; font-weight: 500;
   color: var(--text); cursor: pointer;
   display: flex; justify-content: space-between;
@@ -262,7 +232,7 @@ a.stat:hover::after { opacity: 1; }
   margin-bottom: 4px;
 }
 .work-role {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 1.0625rem; font-weight: 600;
   letter-spacing: -0.015em;
 }
@@ -303,7 +273,7 @@ footer { padding: 48px 0 64px; }
   display: flex; justify-content: space-between; align-items: center;
 }
 .topnav-left {
-  font-family: 'SF Pro Display', -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
   font-size: 0.875rem; font-weight: 600;
   letter-spacing: -0.01em; color: var(--text);
 }
@@ -360,7 +330,7 @@ footer { padding: 48px 0 64px; }
       <a href="https://github.com/Riken-Shah"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
       <a href="https://x.com/_RikenShah"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter</a>
       <a href="https://www.linkedin.com/in/shah-riken/"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-      <a href="https://dev.to/rikenshah"><svg viewBox="0 0 24 24"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.87-.25.21-.18.31-.49.31-.95v-1.97c0-.48-.12-.8-.34-.96zm16.16-7.47H.42C.19 2.58 0 2.78 0 3.02v17.96c0 .24.19.44.42.44h23.16c.23 0 .42-.2.42-.44V3.02c0-.24-.19-.44-.42-.44zM8.89 14.05c0 .66-.16 1.17-.47 1.53-.35.39-.85.59-1.54.59H5.04V7.83h1.77c.71 0 1.23.2 1.6.6.33.36.48.87.48 1.52v4.1zm4.93-5.22H11.4v2.02h1.47v1.01H11.4v2.02h2.42v1.01H10.4V7.83h3.42v1zm5.71 5.95c-.3.68-.88 1.12-1.56 1.12-.39 0-.77-.15-1.06-.45-.28-.29-.5-.74-.64-1.35l-.14-.61c-.25-1.1-.46-2.26-.46-2.77 0-.53.17-1.47.61-2.27.37-.67.97-1.05 1.58-1.05.62 0 1.18.36 1.53.97l-.92.59c-.2-.32-.39-.47-.6-.47-.44 0-.7.5-.82 1-.08.33-.14.83-.14 1.23 0 .83.18 2.05.44 3.15.11.46.24.77.39.94.13.15.28.21.46.21.24 0 .47-.2.65-.56l.88.56z"/></svg>Dev.to</a>
+      <a href="https://dev.to/rikenshah"><svg viewBox="0 0 24 24"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.87-.25.21-.18.31-.49.31-.95v-1.97c0-.48-.12-.8-.34-.96zm16.16-7.47H.42C.19 2.58 0 2.78 0 3.02v17.96c0 .24.19.44.42.44h23.16c.23 0 .42-.2.42-.44V3.02c0-.24-.19-.44-.42-.44zM8.89 14.05c0 .66-.16 1.17-.47 1.53-.35.39-.85.59-1.54.59H5.04V7.83h1.77c.71 0 1.23.2 1.6.6.33.36.48.87.48 1.52v4.1zm4.93-5.22H11.4v2.02h1.47v1.01H11.4v2.02h2.42v1.01H10.4V7.83h3.42v1.01h-3.42zm5.71 5.95c-.3.68-.88 1.12-1.56 1.12-.39 0-.77-.15-1.06-.45-.28-.29-.5-.74-.64-1.35l-.14-.61c-.25-1.1-.46-2.26-.46-2.77 0-.53.17-1.47.61-2.27.37-.67.97-1.05 1.58-1.05.62 0 1.18.36 1.53.97l-.92.59c-.2-.32-.39-.47-.6-.47-.44 0-.7.5-.82 1-.08.33-.14.83-.14 1.23 0 .83.18 2.05.44 3.15.11.46.24.77.39.94.13.15.28.21.46.21.24 0 .47-.2.65-.56l.88.56z"/></svg>Dev.to</a>
       <a href="mailto:rikenshah.02@gmail.com"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>rikenshah.02@gmail.com</a>
     </div>
   </section>
@@ -542,7 +512,7 @@ footer { padding: 48px 0 64px; }
         <a href="https://github.com/Riken-Shah"><svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>GitHub</a>
         <a href="https://x.com/_RikenShah"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter</a>
         <a href="https://www.linkedin.com/in/shah-riken/"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-        <a href="https://dev.to/rikenshah"><svg viewBox="0 0 24 24"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.87-.25.21-.18.31-.49.31-.95v-1.97c0-.48-.12-.8-.34-.96zm16.16-7.47H.42C.19 2.58 0 2.78 0 3.02v17.96c0 .24.19.44.42.44h23.16c.23 0 .42-.2.42-.44V3.02c0-.24-.19-.44-.42-.44zM8.89 14.05c0 .66-.16 1.17-.47 1.53-.35.39-.85.59-1.54.59H5.04V7.83h1.77c.71 0 1.23.2 1.6.6.33.36.48.87.48 1.52v4.1zm4.93-5.22H11.4v2.02h1.47v1.01H11.4v2.02h2.42v1.01H10.4V7.83h3.42v1em5.71 5.95c-.3.68-.88 1.12-1.56 1.12-.39 0-.77-.15-1.06-.45-.28-.29-.5-.74-.64-1.35l-.14-.61c-.25-1.1-.46-2.26-.46-2.77 0-.53.17-1.47.61-2.27.37-.67.97-1.05 1.58-1.05.62 0 1.18.36 1.53.97l-.92.59c-.2-.32-.39-.47-.6-.47-.44 0-.7.5-.82 1-.08.33-.14.83-.14 1.23 0 .83.18 2.05.44 3.15.11.46.24.77.39.94.13.15.28.21.46.21.24 0 .47-.2.65-.56l.88.56z"/></svg>Dev.to</a>
+        <a href="https://dev.to/rikenshah"><svg viewBox="0 0 24 24"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.87-.25.21-.18.31-.49.31-.95v-1.97c0-.48-.12-.8-.34-.96zm16.16-7.47H.42C.19 2.58 0 2.78 0 3.02v17.96c0 .24.19.44.42.44h23.16c.23 0 .42-.2.42-.44V3.02c0-.24-.19-.44-.42-.44zM8.89 14.05c0 .66-.16 1.17-.47 1.53-.35.39-.85.59-1.54.59H5.04V7.83h1.77c.71 0 1.23.2 1.6.6.33.36.48.87.48 1.52v4.1zm4.93-5.22H11.4v2.02h1.47v1.01H11.4v2.02h2.42v1.01H10.4V7.83h3.42v1.01h-3.42zm5.71 5.95c-.3.68-.88 1.12-1.56 1.12-.39 0-.77-.15-1.06-.45-.28-.29-.5-.74-.64-1.35l-.14-.61c-.25-1.1-.46-2.26-.46-2.77 0-.53.17-1.47.61-2.27.37-.67.97-1.05 1.58-1.05.62 0 1.18.36 1.53.97l-.92.59c-.2-.32-.39-.47-.6-.47-.44 0-.7.5-.82 1-.08.33-.14.83-.14 1.23 0 .83.18 2.05.44 3.15.11.46.24.77.39.94.13.15.28.21.46.21.24 0 .47-.2.65-.56l.88.56z"/></svg>Dev.to</a>
         <a href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>
       </nav>
     </div>
