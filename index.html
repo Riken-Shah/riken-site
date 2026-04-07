@@ -98,6 +98,23 @@ a { color: var(--text); text-decoration: none; }
 
 .m { color: var(--text); font-weight: 500; }
 
+/* ── Tooltip ───────────────────────────────────── */
+.tip {
+  position: relative; cursor: help;
+}
+.tip::after {
+  content: attr(data-tip);
+  position: absolute; left: 0; top: calc(100% + 8px);
+  background: var(--text); color: var(--bg);
+  font-size: 0.75rem; font-style: normal;
+  line-height: 1.5; white-space: pre-line;
+  padding: 8px 12px; border-radius: 8px;
+  opacity: 0; pointer-events: none;
+  transition: opacity .2s; z-index: 10;
+  width: max-content; max-width: 300px;
+}
+.tip:hover::after { opacity: 1; }
+
 /* ── Hero ─────────────────────────────────────── */
 .hero { padding: 160px 0 80px; }
 .hero h1 {
@@ -554,7 +571,7 @@ addEventListener('load',function(){
   if(!n)return;
   var ms=Math.round(n.domContentLoadedEventEnd-n.startTime);
   var el=document.getElementById('load-time');
-  if(el){el.innerHTML='<span title="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime" style="border:1px solid var(--border);padding:4px 14px;border-radius:980px;font-style:italic;cursor:help;display:inline-block">Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
+  if(el){el.innerHTML='<span class="tip" data-tip="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime" style="border:1px solid var(--border);padding:4px 14px;border-radius:980px;font-style:italic;display:inline-block">Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
 });
 </script>
 </body>
