@@ -554,7 +554,7 @@ addEventListener('load',function(){
   if(!n)return;
   var ms=Math.round(n.domContentLoadedEventEnd-n.startTime);
   var el=document.getElementById('load-time');
-  if(el){el.innerHTML='Loaded in <span style="background:var(--surface);border:1px solid var(--border);padding:2px 10px;border-radius:980px;font-style:normal">'+ms+'ms</span>';el.style.opacity='1';}
+  if(el){el.innerHTML='Loaded in <span title="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime" style="background:var(--surface);border:1px solid var(--border);padding:2px 10px;border-radius:980px;font-style:normal;cursor:help">'+ms+'ms</span>';el.style.opacity='1';}
 });
 </script>
 </body>
