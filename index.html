@@ -37,6 +37,11 @@
 <meta name="robots" content="index, follow">
 <meta name="author" content="Riken Shah">
 
+<!-- Preconnect to font CDN to reduce critical chain latency -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Display-Semibold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/nickhundrentmillion/SFPro@main/SF-Pro-Text-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
 <style>
 @font-face {
   font-family: 'SF Pro Display';
@@ -68,8 +73,8 @@
 
 :root {
   --text: #1d1d1f;
-  --text-2: #6e6e73;
-  --text-3: #86868b;
+  --text-2: #515154;
+  --text-3: #636366;
   --bg: #fff;
   --border: #e8e8ed;
   --surface: #f5f5f7;
@@ -343,7 +348,7 @@ footer { padding: 48px 0 64px; }
   </div>
 </nav>
 
-<div class="container">
+<main class="container">
 
   <!-- Hero -->
   <section class="hero">
@@ -526,7 +531,7 @@ footer { padding: 48px 0 64px; }
     </div>
   </section>
 
-</div>
+</main>
 
 <footer>
   <div class="container">
