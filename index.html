@@ -227,6 +227,29 @@ a.stat:hover::after { opacity: 1; }
 }
 .rc-desc { font-size: 0.9375rem; color: var(--text-2); line-height: 1.53; }
 
+/* ── Testimonials ─────────────────────────────── */
+.testimonial {
+  padding: 24px; border: 1px solid var(--border); border-radius: 12px;
+  margin-bottom: 16px; transition: background .15s;
+}
+.testimonial:last-child { margin-bottom: 0; }
+.testimonial:hover { background: var(--surface); }
+.test-quote {
+  font-size: 0.9375rem; color: var(--text-2); line-height: 1.6;
+  margin-bottom: 16px;
+}
+.test-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.test-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--border); display: flex; align-items: center;
+  justify-content: center; font-size: 0.875rem; font-weight: 600;
+  color: var(--text-3); flex-shrink: 0;
+}
+.test-name { font-size: 0.875rem; font-weight: 500; }
+.test-role { font-size: 0.75rem; color: var(--text-3); }
+
 /* ── Writing ──────────────────────────────────── */
 .article-row {
   display: flex; justify-content: space-between;
@@ -429,6 +452,45 @@ footer { padding: 48px 0 64px; }
       <div class="stat-label">PRs Merged · Zulip (OSS Slack)</div>
     </a>
   </div>
+
+  <!-- Testimonials -->
+  <section class="section">
+    <h2 class="section-label">Testimonials</h2>
+
+    <div class="testimonial">
+      <p class="test-quote">"Riken is high energy, high passion person. He audited and re-architected the entire infrastructure for Gratitude (8M+ users, 54M+ requests/month, ~4TB egress/month), bringing AWS costs down 8x and making content delivery 2x faster. All in two weeks with zero downtime. He understands systems deeply and delivers results fast."</p>
+      <div class="test-author">
+        <div class="test-avatar">PS</div>
+        <div>
+          <div class="test-name"><a class="link" href="https://www.linkedin.com/in/priteshsankhe/">Pritesh Sankhe</a></div>
+          <div class="test-role">Founder at Gratitude, gratefulness.me</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p class="test-quote">"Riken helped me reverse engineer and fix a critical system that was breaking a core feature for users. His work restored the extension's ability to find and save offers for CardPointers (1M+ users) with a troublesome bank connector, helping users save $100s every month. It was amazing to see how quickly he diagnosed the problem and we were able to ship a fix together the same day. Highly, highly recommend working with Riken if you have the opportunity!"</p>
+      <div class="test-author">
+        <div class="test-avatar">EC</div>
+        <div>
+          <div class="test-name"><a class="link" href="https://www.linkedin.com/in/emmanuelcrouvisier/">Emmanuel Crouvisier</a></div>
+          <div class="test-role">Founder at CardPointers, Advisor at Alembic Technologies</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial">
+      <p class="test-quote">"Riken single-handedly built the entire backend for Tasks (700K+ users, 4.8+ stars, featured in 100+ countries) in Golang from scratch and owns all of our infrastructure: deployments, monitoring, architecture, everything. In 3+ years of working together, I've never had to worry about the backend. After his work on the sync engine, user complaints about syncing dropped by 90%. He's the kind of engineer you trust completely with production systems."</p>
+      <div class="test-author">
+        <div class="test-avatar">MY</div>
+        <div>
+          <div class="test-name"><a class="link" href="https://www.linkedin.com/in/mustafayusuf/">Mustafa Yusuf</a></div>
+          <div class="test-role">Founder, Building Tasks &amp; Karo</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
 
   <!-- Writing -->
   <section class="section">
