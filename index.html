@@ -239,7 +239,7 @@ a.stat:hover::after { opacity: 1; }
 .testimonial {
   grid-area: 1 / 1;
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 1.2s ease;
   pointer-events: none;
 }
 .testimonial.active {
@@ -484,7 +484,7 @@ footer { padding: 48px 0 64px; }
       <div class="testimonial active">
         <p class="test-quote">"Riken is high energy, high passion person. He audited and re-architected the entire infrastructure for Gratitude (8M+ users, 54M+ requests/month, ~4TB egress/month), bringing AWS costs down 8x and making content delivery 2x faster. All in two weeks with zero downtime. He understands systems deeply and delivers results fast."</p>
         <div class="test-author">
-          <img class="test-avatar" src="/photos/priteshsankhe.jpg" alt="Pritesh Sankhe" loading="lazy" width="36" height="36">
+          <img class="test-avatar" src="/photos/pritesh.jpeg" alt="Pritesh Sankhe" loading="lazy" width="36" height="36">
           <div>
             <div class="test-name"><a class="link" href="https://www.linkedin.com/in/priteshsankhe/">Pritesh Sankhe</a></div>
             <div class="test-role">Founder at Gratitude, gratefulness.me</div>
@@ -495,7 +495,7 @@ footer { padding: 48px 0 64px; }
       <div class="testimonial">
         <p class="test-quote">"Riken helped me reverse engineer and fix a critical system that was breaking a core feature for users. His work restored the extension's ability to find and save offers for CardPointers (1M+ users) with a troublesome bank connector, helping users save $100s every month. It was amazing to see how quickly he diagnosed the problem and we were able to ship a fix together the same day. Highly, highly recommend working with Riken if you have the opportunity!"</p>
         <div class="test-author">
-          <img class="test-avatar" src="/photos/emmanuelcrouvisier.jpg" alt="Emmanuel Crouvisier" loading="lazy" width="36" height="36">
+          <img class="test-avatar" src="/photos/emanueal.jpeg" alt="Emmanuel Crouvisier" loading="lazy" width="36" height="36">
           <div>
             <div class="test-name"><a class="link" href="https://www.linkedin.com/in/emmanuelcrouvisier/">Emmanuel Crouvisier</a></div>
             <div class="test-role">Founder at CardPointers, Advisor at Alembic Technologies</div>
@@ -506,7 +506,7 @@ footer { padding: 48px 0 64px; }
       <div class="testimonial">
         <p class="test-quote">"Riken single-handedly built the entire backend for Tasks (700K+ users, 4.8+ stars, featured in 100+ countries) in Golang from scratch and owns all of our infrastructure: deployments, monitoring, architecture, everything. In 3+ years of working together, I've never had to worry about the backend. After his work on the sync engine, user complaints about syncing dropped by 90%. He's the kind of engineer you trust completely with production systems."</p>
         <div class="test-author">
-          <img class="test-avatar" src="/photos/mustafayusuf.jpg" alt="Mustafa Yusuf" loading="lazy" width="36" height="36">
+          <img class="test-avatar" src="/photos/mustafa.jpeg" alt="Mustafa Yusuf" loading="lazy" width="36" height="36">
           <div>
             <div class="test-name"><a class="link" href="https://www.linkedin.com/in/mustafayusuf/">Mustafa Yusuf</a></div>
             <div class="test-role">Founder, Building Tasks &amp; Karo</div>
@@ -699,8 +699,12 @@ addEventListener('load',function(){
   var slides = document.querySelectorAll('.testimonial-carousel .testimonial');
   var dots = document.querySelectorAll('.carousel-dot');
   var current = 0;
-  var interval = 5000;
   var timer = null;
+  // Per-slide read time based on word count: ~250ms/word + 2.5s buffer, clamped 5–14s
+  var readTimes = Array.prototype.map.call(slides, function(s) {
+    var words = (s.querySelector('.test-quote').textContent.trim().split(/\s+/).length);
+    return Math.max(5000, Math.min(14000, words * 250 + 2500));
+  });
   function show(i) {
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
@@ -708,17 +712,17 @@ addEventListener('load',function(){
     slides[current].classList.add('active');
     dots[current].classList.add('active');
   }
-  function next() { show((current + 1) % slides.length); }
-  function start() { if (!timer) timer = setInterval(next, interval); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function next() { show((current + 1) % slides.length); schedule(); }
+  function schedule() { stop(); timer = setTimeout(next, readTimes[current]); }
+  function stop() { if (timer) { clearTimeout(timer); timer = null; } }
   dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { show(i); stop(); start(); });
+    dot.addEventListener('click', function() { show(i); schedule(); });
   });
   if (carousel) {
     carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
+    carousel.addEventListener('mouseleave', schedule);
   }
-  start();
+  schedule();
 })();
 </script>
 </body>
