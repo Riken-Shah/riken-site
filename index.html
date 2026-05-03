@@ -747,12 +747,12 @@ addEventListener('load',function(){
         if (!paused) schedule();
       });
     }
-    // Touch: swipe + tap to pause
+    // Touch: swipe to navigate only
     var touchStartX = 0;
     carousel.addEventListener('touchstart', function(e) {
       lastInputWasTouch = true;
       touchStartX = e.changedTouches[0].clientX;
-      if (hint) hint.textContent = 'Tap to pause';
+      if (hint) hint.textContent = 'Swipe to navigate';
     }, {passive: true});
     carousel.addEventListener('touchend', function(e) {
       var dx = e.changedTouches[0].clientX - touchStartX;
@@ -760,10 +760,6 @@ addEventListener('load',function(){
         if (dx < 0) { show((current + 1) % slides.length); }
         else { show((current - 1 + slides.length) % slides.length); }
         schedule();
-        paused = false;
-      } else {
-        paused = !paused;
-        if (paused) { stop(); } else { schedule(); }
       }
     });
     // Reset touch flag on mouse movement
