@@ -33,6 +33,7 @@
 <meta name="twitter:image" content="https://riken.me/og-image.png">
 
 <!-- SEO -->
+<base target="_blank">
 <link rel="canonical" href="https://riken.me">
 <meta name="robots" content="index, follow">
 <meta name="author" content="Riken Shah">
@@ -270,6 +271,10 @@ a.stat:hover::after { opacity: 1; }
 }
 .carousel-dot.active {
   background: var(--text-3); transform: scale(1.3);
+}
+.carousel-hint {
+  text-align: center; font-size: 0.6875rem; color: var(--text-3);
+  margin-top: 10px; opacity: 0.7;
 }
 
 /* ── Writing ──────────────────────────────────── */
@@ -520,6 +525,7 @@ footer { padding: 48px 0 64px; }
         <button class="carousel-dot" aria-label="Testimonial 2"></button>
         <button class="carousel-dot" aria-label="Testimonial 3"></button>
       </div>
+      <div class="carousel-hint" id="carousel-hint">Hover to pause</div>
     </div>
 
   </section>
@@ -530,6 +536,10 @@ footer { padding: 48px 0 64px; }
     <div class="article-row">
       <span class="ar-title"><a class="link" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">Scaling Backend to 1M Requests with Just 2GB RAM</a></span>
       <span class="ar-meta">100K+ reads · 600K+ impressions</span>
+    </div>
+    <div class="article-row">
+      <span class="ar-title"><a class="link" href="https://www.web.thetasks.app/benchmark">Sub-500ms Realtime Sync Engine Benchmark</a></span>
+      <span class="ar-meta">Live benchmark · thetasks.app</span>
     </div>
     <div class="article-row">
       <span class="ar-title"><a class="link" href="https://x.com/compose/articles/edit/2012806823074836480">Building a Sync Engine for 700K+ Users on Modified CRDTs</a></span>
@@ -678,7 +688,7 @@ footer { padding: 48px 0 64px; }
         <a href="https://x.com/_RikenShah"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Twitter</a>
         <a href="https://www.linkedin.com/in/shah-riken/"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
         <a href="https://dev.to/rikenshah"><svg viewBox="0 0 24 24"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6v4.36h.58c.37 0 .67-.08.87-.25.21-.18.31-.49.31-.95v-1.97c0-.48-.12-.8-.34-.96zm16.16-7.47H.42C.19 2.58 0 2.78 0 3.02v17.96c0 .24.19.44.42.44h23.16c.23 0 .42-.2.42-.44V3.02c0-.24-.19-.44-.42-.44zM8.89 14.05c0 .66-.16 1.17-.47 1.53-.35.39-.85.59-1.54.59H5.04V7.83h1.77c.71 0 1.23.2 1.6.6.33.36.48.87.48 1.52v4.1zm4.93-5.22H11.4v2.02h1.47v1.01H11.4v2.02h2.42v1.01H10.4V7.83h3.42v1.01h-3.42zm5.71 5.95c-.3.68-.88 1.12-1.56 1.12-.39 0-.77-.15-1.06-.45-.28-.29-.5-.74-.64-1.35l-.14-.61c-.25-1.1-.46-2.26-.46-2.77 0-.53.17-1.47.61-2.27.37-.67.97-1.05 1.58-1.05.62 0 1.18.36 1.53.97l-.92.59c-.2-.32-.39-.47-.6-.47-.44 0-.7.5-.82 1-.08.33-.14.83-.14 1.23 0 .83.18 2.05.44 3.15.11.46.24.77.39.94.13.15.28.21.46.21.24 0 .47-.2.65-.56l.88.56z"/></svg>Dev.to</a>
-        <a href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>
+
       </nav>
     </div>
   </div>
@@ -688,9 +698,9 @@ footer { padding: 48px 0 64px; }
 addEventListener('load',function(){
   var n=performance.getEntriesByType('navigation')[0];
   if(!n)return;
-  var ms=Math.round(n.domContentLoadedEventEnd-n.startTime);
+  var ms=Math.round(n.responseEnd-n.requestStart);
   var el=document.getElementById('load-time');
-  if(el){el.innerHTML='<span class="load-wrap" data-tip="Pure HTML + CSS. Full lookup: DNS → TCP → TLS → Download → DOM.\ndomContentLoadedEventEnd − startTime"><span class="clock"><span class="clock-hand clock-min"></span><span class="clock-hand clock-sec"></span></span>Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
+  if(el){el.innerHTML='<span class="load-wrap" data-tip="Server response time · Pure HTML, no framework"><span class="clock"><span class="clock-hand clock-min"></span><span class="clock-hand clock-sec"></span></span>Loaded in <span style="text-decoration:underline;text-underline-offset:3px">'+ms+'ms</span></span>';el.style.opacity='1';}
 });
 
 // Testimonial carousel
@@ -698,8 +708,13 @@ addEventListener('load',function(){
   var carousel = document.querySelector('.testimonial-carousel');
   var slides = document.querySelectorAll('.testimonial-carousel .testimonial');
   var dots = document.querySelectorAll('.carousel-dot');
+  var hint = document.getElementById('carousel-hint');
   var current = 0;
   var timer = null;
+  var paused = false;
+  var isTouch = 'ontouchstart' in window;
+  // Set hint text based on device
+  if (hint && isTouch) hint.textContent = 'Tap to pause';
   // Per-slide read time based on word count: ~250ms/word + 2.5s buffer, clamped 5–14s
   var readTimes = Array.prototype.map.call(slides, function(s) {
     var words = (s.querySelector('.test-quote').textContent.trim().split(/\s+/).length);
@@ -716,11 +731,31 @@ addEventListener('load',function(){
   function schedule() { stop(); timer = setTimeout(next, readTimes[current]); }
   function stop() { if (timer) { clearTimeout(timer); timer = null; } }
   dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { show(i); schedule(); });
+    dot.addEventListener('click', function() { show(i); schedule(); paused = false; });
   });
   if (carousel) {
+    // Desktop: hover to pause
     carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', schedule);
+    carousel.addEventListener('mouseleave', function() { if (!paused) schedule(); });
+    // Swipe + tap to pause
+    var touchStartX = 0;
+    carousel.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].clientX;
+    }, {passive: true});
+    carousel.addEventListener('touchend', function(e) {
+      var dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) {
+        // Swipe: navigate and reset auto-rotation
+        if (dx < 0) { show((current + 1) % slides.length); }
+        else { show((current - 1 + slides.length) % slides.length); }
+        schedule();
+        paused = false;
+      } else {
+        // Tap: toggle pause
+        paused = !paused;
+        if (paused) { stop(); } else { schedule(); }
+      }
+    });
   }
   schedule();
 })();
