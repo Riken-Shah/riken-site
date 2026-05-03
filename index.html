@@ -713,9 +713,8 @@ addEventListener('load',function(){
   var current = 0;
   var timer = null;
   var paused = false;
-  var isTouch = 'ontouchstart' in window;
-  // Set hint text based on device
-  if (hint && isTouch) hint.textContent = 'Tap to pause';
+  var hovering = false;
+  var lastInputWasTouch = false;
   // Per-slide read time based on word count: ~250ms/word + 2.5s buffer, clamped 5–14s
   var readTimes = Array.prototype.map.call(slides, function(s) {
     var words = (s.querySelector('.test-quote').textContent.trim().split(/\s+/).length);
@@ -735,31 +734,40 @@ addEventListener('load',function(){
     dot.addEventListener('click', function() { show(i); schedule(); paused = false; });
   });
   if (carousel) {
-    // Desktop: hover to pause (only inside the card area)
     var track = document.querySelector('.testimonial-track');
-    if (!isTouch && track) {
-      track.addEventListener('mouseenter', stop);
-      track.addEventListener('mouseleave', function() { if (!paused) schedule(); });
+    // Hover to pause (inside card area only)
+    if (track) {
+      track.addEventListener('mouseenter', function() {
+        if (lastInputWasTouch) return;
+        hovering = true;
+        stop();
+      });
+      track.addEventListener('mouseleave', function() {
+        hovering = false;
+        if (!paused) schedule();
+      });
     }
-    // Swipe + tap to pause
+    // Touch: swipe + tap to pause
     var touchStartX = 0;
     carousel.addEventListener('touchstart', function(e) {
+      lastInputWasTouch = true;
       touchStartX = e.changedTouches[0].clientX;
+      if (hint) hint.textContent = 'Tap to pause';
     }, {passive: true});
     carousel.addEventListener('touchend', function(e) {
       var dx = e.changedTouches[0].clientX - touchStartX;
       if (Math.abs(dx) > 50) {
-        // Swipe: navigate and reset auto-rotation
         if (dx < 0) { show((current + 1) % slides.length); }
         else { show((current - 1 + slides.length) % slides.length); }
         schedule();
         paused = false;
       } else {
-        // Tap: toggle pause
         paused = !paused;
         if (paused) { stop(); } else { schedule(); }
       }
     });
+    // Reset touch flag on mouse movement
+    carousel.addEventListener('mousemove', function() { lastInputWasTouch = false; });
   }
   schedule();
 })();
