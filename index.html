@@ -235,15 +235,16 @@ a.stat:hover::after { opacity: 1; }
   padding: 24px;
 }
 .testimonial-track {
-  display: grid;
+  position: relative;
 }
 .testimonial {
-  grid-area: 1 / 1;
+  position: absolute; top: 0; left: 0; width: 100%;
   opacity: 0;
   transition: opacity 1.2s ease;
   pointer-events: none;
 }
 .testimonial.active {
+  position: relative;
   opacity: 1;
   pointer-events: auto;
 }
@@ -734,10 +735,11 @@ addEventListener('load',function(){
     dot.addEventListener('click', function() { show(i); schedule(); paused = false; });
   });
   if (carousel) {
-    // Desktop: hover to pause (skip on touch devices to avoid emulated mouse events)
-    if (!isTouch) {
-      carousel.addEventListener('mouseenter', stop);
-      carousel.addEventListener('mouseleave', function() { if (!paused) schedule(); });
+    // Desktop: hover to pause (only inside the card area)
+    var track = document.querySelector('.testimonial-track');
+    if (!isTouch && track) {
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', function() { if (!paused) schedule(); });
     }
     // Swipe + tap to pause
     var touchStartX = 0;
