@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Riken Shah – Performance Engineer</title>
-<meta name="description" content="Riken Shah – Performance Engineer. I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (800K+ downloads, 4.8★). Distributed systems, local-first architecture, and AI infrastructure.">
+<meta name="description" content="Riken Shah – Performance Engineer. I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (~1M users, 4.8★). Distributed systems, local-first architecture, and AI infrastructure.">
 
 <!-- Favicon -->
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://riken.me">
 <meta property="og:title" content="Riken Shah – Performance Engineer">
-<meta property="og:description" content="I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (800K+ downloads, 4.8★). Distributed systems, local-first architecture, and AI infrastructure.">
+<meta property="og:description" content="I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (~1M users, 4.8★). Distributed systems, local-first architecture, and AI infrastructure.">
 <meta property="og:image" content="https://riken.me/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
 <meta name="twitter:site" content="@_RikenShah">
 <meta name="twitter:creator" content="@_RikenShah">
 <meta name="twitter:title" content="Riken Shah – Performance Engineer">
-<meta name="twitter:description" content="I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (800K+ downloads, 4.8★).">
+<meta name="twitter:description" content="I build systems that scale to hundreds of thousands of people. Founding Engineer at Tasks (~1M users, 4.8★).">
 <meta name="twitter:image" content="https://riken.me/og-image.png">
 
 <!-- SEO -->
@@ -480,7 +480,7 @@ footer { padding: 48px 0 64px; }
   <div class="stats">
     <a class="stat" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">
       <div class="stat-val">4.8 ★</div>
-      <div class="stat-label">App Store Rating · 800K+ Downloads</div>
+      <div class="stat-label">App Store Rating · ~1M Users</div>
     </a>
     <a class="stat" href="https://x.com/_RikenShah/status/2039531120061034802">
       <div class="stat-val">12x</div>
@@ -491,11 +491,11 @@ footer { padding: 48px 0 64px; }
       <div class="stat-label">Backend Latency Improvement</div>
     </a>
     <a class="stat" href="https://x.com/_RikenShah/status/2028794930714599713">
-      <div class="stat-val">99%</div>
-      <div class="stat-label">Sync Complaints Eliminated</div>
+      <div class="stat-val">90%+</div>
+      <div class="stat-label">Fewer Sync Complaints</div>
     </a>
     <a class="stat" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">
-      <div class="stat-val">100K+</div>
+      <div class="stat-val">70K+</div>
       <div class="stat-label">Reads · Scaling Backend to 1M Req</div>
     </a>
     <a class="stat" href="https://github.com/zulip/zulip/pulls?q=is%3Apr+author%3ARiken-Shah">
@@ -558,7 +558,7 @@ footer { padding: 48px 0 64px; }
     <h2 class="section-label">Writing</h2>
     <div class="article-row">
       <span class="ar-title"><a class="link" href="https://dev.to/rikenshah/scaling-backend-to-1m-requests-with-just-2gb-ram-4m0c">Scaling Backend to 1M Requests with Just 2GB RAM</a></span>
-      <span class="ar-meta">100K+ reads · 600K+ impressions</span>
+      <span class="ar-meta">70K+ reads · 600K+ impressions</span>
     </div>
     <div class="article-row">
       <span class="ar-title"><a class="link" href="https://www.web.thetasks.app/benchmark">Sub-500ms Realtime Sync Engine Benchmark</a></span>
@@ -664,13 +664,14 @@ footer { padding: 48px 0 64px; }
       <div class="work-card">
         <div class="work-head">
           <span class="work-role">Founding Engineer</span>
-          <span class="work-when">Oct 2022 – Present</span>
+          <span class="work-when">Oct 2022 – May 2026</span>
         </div>
         <div class="work-at"><a class="link" href="https://apps.apple.com/in/app/tasks-todo-lists-kanban/id1502903102">Tasks</a>, Msquare Labs</div>
         <div class="work-body">
-          <p>Built the <a class="link" href="https://x.com/_RikenShah/status/2028794930714599713">sync engine from scratch</a> using a modified CRDT architecture in Go. Replaced CloudKit to support real-time collaboration with <span class="m">sub-500ms p99 latency</span> globally and zero data loss incidents.</p>
+          <p>Scaled Tasks from <span class="m">100K to nearly 1M users</span> on AWS while revenue grew <span class="m">200%</span>; Apple-featured in 100+ countries.</p>
+          <p>Built the <a class="link" href="https://x.com/_RikenShah/status/2028794930714599713">sync engine from scratch</a> using a modified CRDT architecture in Go. Replaced CloudKit to support real-time collaboration with <span class="m">sub-500ms p99 latency</span> globally and zero data loss incidents, cutting sync complaints by <span class="m">90%+</span>.</p>
           <p>Built the <a class="link" href="https://x.com/_RikenShah/status/2039531120061034802">web app</a> with a viewport-based rendering system scaling from 100 to 100K tasks under <span class="m">~150MB memory</span>. Rewrote the backend from Node.js to Go, achieving a <span class="m">4.6x latency improvement</span> (p99: 1s → 220ms).</p>
-          <p>Integrated observability with the LGTM Stack (Loki, Grafana, Tempo), resolving <span class="m">80%</span> of recurring production errors. Built a real-time voice-controlled AI agent using Gemini Live multimodal API with <span class="m">sub-200ms action latency</span>. Built Yagumi, an AI flow orchestration layer with a 52-flow registry and DAG-based plan builder. Owned infrastructure end-to-end, <span class="m">99.99% uptime</span>.</p>
+          <p>Integrated observability with the LGTM Stack (Loki, Grafana, Tempo), resolving <span class="m">80%</span> of recurring production errors. Built a production ReAct agent on Amazon Bedrock AgentCore handling <span class="m">100K queries/day</span> at peak. Built a real-time voice-controlled AI agent using Gemini Live multimodal API with <span class="m">sub-200ms action latency</span>. Built Yagumi, an AI flow orchestration layer with a 52-flow registry and DAG-based plan builder. Owned infrastructure end-to-end, <span class="m">99.99% uptime</span>.</p>
         </div>
       </div>
 
@@ -688,12 +689,12 @@ footer { padding: 48px 0 64px; }
 
       <div class="work-card">
         <div class="work-head">
-          <span class="work-role">Open Source · GSoC</span>
-          <span class="work-when">2021 – 2022</span>
+          <span class="work-role">Open Source · GSoC Mentor</span>
+          <span class="work-when">2021 – 2024</span>
         </div>
         <div class="work-at"><a class="link" href="https://github.com/zulip/zulip/pulls?q=is%3Apr+author%3ARiken-Shah">Zulip</a></div>
         <div class="work-body">
-          <p><span class="m">57+ merged PRs</span> and <span class="m">100+ commits</span> across full-stack features, CI stability, and major refactors. Built the Emoji Status feature that headlined the <a class="link" href="https://blog.zulip.com/2022/03/29/zulip-5-0-released/">Zulip v5 release</a>, now used by <span class="m">1000+ organizations</span>. Selected for Google Summer of Code at age 17 (<a class="link" href="https://gist.github.com/Riken-Shah/a8253e95265a22fadb55cbe62be32deb">2021</a>, <a class="link" href="https://gist.github.com/Riken-Shah/e94721c8b60e69a91deabd01b7a1f941">2022</a>).</p>
+          <p><span class="m">57+ merged PRs</span> and <span class="m">100+ commits</span> across full-stack features, CI stability, and major refactors. Built the Emoji Status feature that headlined the <a class="link" href="https://blog.zulip.com/2022/03/29/zulip-5-0-released/">Zulip v5 release</a>, now used by <span class="m">1000+ organizations</span>. Selected for Google Summer of Code at age 17 (<a class="link" href="https://gist.github.com/Riken-Shah/a8253e95265a22fadb55cbe62be32deb">2021</a>, <a class="link" href="https://gist.github.com/Riken-Shah/e94721c8b60e69a91deabd01b7a1f941">2022</a>), then selected as one of <span class="m">26 mentors</span> for GSoC 2024.</p>
         </div>
       </div>
 
