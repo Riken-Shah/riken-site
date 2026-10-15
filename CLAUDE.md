@@ -30,7 +30,7 @@ Static personal site for Riken Shah, deployed on Cloudflare Pages via GitHub aut
 
 ## Files
 - `index.html` — The entire site
-- `resume.pdf` — Resume (source: ~/Downloads/resume-obsidian.pdf)
+- `resume.pdf` — Resume (source: ~/Downloads/riken_shah_resume.pdf)
 - `favicon.svg` — Vector favicon (path-based "R" on dark rounded square)
 - `favicon-16.png`, `favicon-32.png` — PNG favicon fallbacks
 - `apple-touch-icon.png` — 180px iOS home screen icon
